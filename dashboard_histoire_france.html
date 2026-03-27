@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histoire & Littérature Française — XVIIe & XVIIIe siècles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE1;
+    --ink: #1A1714;
+    --ink-soft: #3D3530;
+    --navy: #1B2A4A;
+    --navy-light: #2E4270;
+    --gold: #B8892A;
+    --gold-light: #D4A843;
+    --terracotta: #B5492A;
+    --terracotta-light: #D4623E;
+    --sage: #3D6B5A;
+    --sage-light: #528C74;
+    --lavender: #5A4E7A;
+    --lavender-light: #7B6EA0;
+    --border: #D9D0C0;
+    --shadow: rgba(26,23,20,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ─── TOP NAV ─── */
+  header {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .header-title span.flag { font-size: 1.3rem; }
+
+  nav {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  nav button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.65);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  nav button:hover { color: #fff; background: rgba(255,255,255,0.07); }
+
+  nav button.active {
+    color: #fff;
+    border-bottom-color: var(--gold-light);
+    background: rgba(255,255,255,0.05);
+  }
+
+  nav button .num {
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  nav button.active .num { background: var(--gold-light); }
+
+  /* ─── PAGE WRAPPER ─── */
+  .page { display: none; animation: fadeIn 0.35s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── HERO BANNER ─── */
+  .hero {
+    padding: 3.5rem 2rem 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--terracotta); }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .hero-meta {
+    text-align: right;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    gap: 0.2rem;
+  }
+
+  .hero-badge .century {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .hero-badge .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2.5rem;
+  }
+
+  /* ─── SECTION CARDS ─── */
+  .section-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 1px 8px var(--shadow);
+  }
+
+  .section-card-header {
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-card-header:hover { background: var(--cream); }
+
+  .section-icon {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .icon-navy { background: var(--navy); }
+  .icon-terra { background: var(--terracotta); }
+  .icon-sage { background: var(--sage); }
+  .icon-gold { background: var(--gold); }
+  .icon-lavender { background: var(--lavender); }
+
+  .section-card-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    flex: 1;
+  }
+
+  .chevron {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    transition: transform 0.25s;
+  }
+
+  .section-body {
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .section-body.open { display: block; }
+  .section-card-header.open .chevron { transform: rotate(180deg); }
+
+  /* ─── CONTENT BLOCKS ─── */
+  .subsection { margin-bottom: 1.6rem; }
+  .subsection:last-child { margin-bottom: 0; }
+
+  .subsection h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .subsection h3::before {
+    content: '';
+    display: block;
+    width: 3px; height: 14px;
+    background: var(--terracotta);
+    border-radius: 2px;
+  }
+
+  .subsection p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 0.7rem;
+  }
+
+  .subsection p:last-child { margin-bottom: 0; }
+
+  /* KEY CONCEPTS */
+  .key-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .fact-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    padding: 0.6rem 0.8rem;
+    background: var(--cream);
+    border-radius: 6px;
+    border-left: 3px solid var(--navy);
+    font-size: 0.88rem;
+  }
+
+  .fact-year {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--navy);
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+
+  .fact-text { color: var(--ink-soft); line-height: 1.5; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, #EFF3FA 0%, #E8F0F5 100%);
+    border: 1px solid #C5D3E8;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+  }
+
+  .highlight-box.gold-box {
+    background: linear-gradient(135deg, #FDF5E8 0%, #F8EDD4 100%);
+    border-color: #E0C480;
+  }
+
+  .highlight-box.green-box {
+    background: linear-gradient(135deg, #EDF5F0 0%, #E0F0EA 100%);
+    border-color: #9ECBB6;
+  }
+
+  .highlight-box .box-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-box p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* QUOTE */
+  .quote-block {
+    border-left: 3px solid var(--gold);
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+    background: #FEFBF4;
+  }
+
+  .quote-block p {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.3rem 0;
+  }
+
+  .quote-block cite {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar { position: relative; }
+
+  .sidebar-sticky {
+    position: sticky;
+    top: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px var(--shadow);
+  }
+
+  .sidebar-card-header {
+    background: var(--navy);
+    padding: 0.85rem 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sidebar-card-header.gold { background: var(--gold); }
+  .sidebar-card-header.terra { background: var(--terracotta); }
+  .sidebar-card-header.sage { background: var(--sage); }
+
+  .sidebar-card-body { padding: 1rem 1.1rem; }
+
+  /* TRANSLATION TABLE */
+  .translation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+
+  .translation-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .translation-table tr:last-child { border-bottom: none; }
+
+  .translation-table td {
+    padding: 0.45rem 0.3rem;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .translation-table td:first-child {
+    font-style: italic;
+    color: var(--navy);
+    font-weight: 400;
+    width: 50%;
+    padding-right: 0.6rem;
+  }
+
+  .translation-table td:last-child {
+    color: var(--ink-soft);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 0.7rem;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 22px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .tl-item:last-child::before { display: none; }
+
+  .tl-year {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+    margin-top: 1px;
+  }
+
+  .tl-content {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    padding-top: 2px;
+  }
+
+  .tl-content strong {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.1rem;
+    font-size: 0.83rem;
+  }
+
+  /* PERSONAGE CARD */
+  .personage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .pers-item {
+    padding: 0.7rem 0.8rem;
+    background: var(--cream);
+    border-radius: 7px;
+    border: 1px solid var(--border);
+  }
+
+  .pers-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .pers-dates {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .pers-desc {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ─── EXERCISES ─── */
+  .exercises-section {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 1px 8px var(--shadow);
+    margin-bottom: 1.8rem;
+    overflow: hidden;
+  }
+
+  .ex-header {
+    background: var(--terracotta);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .ex-header:hover { background: var(--terracotta-light); }
+
+  .ex-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: #fff;
+    flex: 1;
+  }
+
+  .ex-header .chevron { color: rgba(255,255,255,0.8); }
+
+  .ex-body {
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .ex-body.open { display: block; }
+
+  .exercise {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .exercise:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+  .ex-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+  }
+
+  .ex-question {
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+
+  .ex-type {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+  }
+
+  .type-qcm { background: #EEF2FA; color: var(--navy); }
+  .type-vero { background: #EDF5F0; color: var(--sage); }
+  .type-aperto { background: #FDF5E8; color: var(--gold); }
+  .type-completa { background: #F9EDEA; color: var(--terracotta); }
+
+  .qcm-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .qcm-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.87rem;
+    color: var(--ink-soft);
+    background: var(--cream);
+    user-select: none;
+  }
+
+  .qcm-option:hover { border-color: var(--navy); background: #EEF2FA; }
+  .qcm-option.selected { border-color: var(--navy); background: #E0E8F5; }
+  .qcm-option.correct { border-color: var(--sage); background: #EDF5F0; color: var(--sage); }
+  .qcm-option.wrong { border-color: var(--terracotta); background: #FAEDEA; color: var(--terracotta); }
+
+  .qcm-option input[type="radio"] { display: none; }
+
+  .qcm-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .qcm-dot::after {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+  }
+
+  .qcm-option.selected .qcm-dot::after,
+  .qcm-option.correct .qcm-dot::after { opacity: 1; }
+
+  .ex-btn {
+    margin-top: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .ex-btn:hover { background: var(--navy-light); }
+
+  .ex-feedback {
+    margin-top: 0.6rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    display: none;
+    line-height: 1.55;
+  }
+
+  .ex-feedback.show { display: block; }
+  .ex-feedback.ok { background: #EDF5F0; color: var(--sage); border: 1px solid #9ECBB6; }
+  .ex-feedback.ko { background: #FAEDEA; color: var(--terracotta); border: 1px solid #DDA090; }
+
+  .vf-buttons {
+    display: flex; gap: 0.7rem; flex-wrap: wrap;
+  }
+
+  .vf-btn {
+    padding: 0.45rem 1.1rem;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .vf-btn:hover { background: var(--cream-dark); }
+  .vf-btn.selected-v { border-color: var(--sage); background: #EDF5F0; color: var(--sage); }
+  .vf-btn.selected-f { border-color: var(--terracotta); background: #FAEDEA; color: var(--terracotta); }
+
+  textarea.open-answer {
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.7rem 0.8rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--cream);
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 0.5rem;
+  }
+
+  textarea.open-answer:focus { border-color: var(--navy); background: #fff; }
+
+  .fill-blank {
+    font-size: 0.9rem;
+    line-height: 2.2;
+    color: var(--ink-soft);
+  }
+
+  .fill-blank input {
+    border: none;
+    border-bottom: 2px solid var(--navy);
+    background: transparent;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    color: var(--navy);
+    width: 130px;
+    padding: 0 0.3rem;
+    outline: none;
+    text-align: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: #999;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .content { grid-template-columns: 1fr; }
+    .sidebar-sticky { position: static; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-meta { text-align: left; }
+    nav button span:not(.num) { display: none; }
+    .header-title { font-size: 0.9rem; }
+  }
+
+  /* ─── CONCETTI CHIAVE TAGS ─── */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+  }
+
+  .tag-navy { background: #E0E8F5; color: var(--navy); }
+  .tag-terra { background: #F9EDEA; color: var(--terracotta); }
+  .tag-gold { background: #FDF5E8; color: var(--gold); }
+  .tag-sage { background: #EDF5F0; color: var(--sage); }
+  .tag-lav { background: #F0EDF8; color: var(--lavender); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-title">
+      <span class="flag">🇫🇷</span>
+      Histoire &amp; Littérature — XVII<sup>e</sup> &amp; XVIII<sup>e</sup> siècles
+    </div>
+    <nav>
+      <button class="active" onclick="showPage(0,this)">
+        <span class="num">I</span> <span>Le Grand Siècle</span>
+      </button>
+      <button onclick="showPage(1,this)">
+        <span class="num">II</span> <span>Ancien Régime &amp; Révolution</span>
+      </button>
+      <button onclick="showPage(2,this)">
+        <span class="num">III</span> <span>Lumières &amp; Philosophes</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODULE I -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-0">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Module I</div>
+      <h1>Le Grand Siècle :<br><em>l'État moderne</em> et la création littéraire</h1>
+      <p class="hero-sub">La France du XVII<sup>e</sup> siècle, entre construction de l'absolutisme royal et floraison d'une grande littérature classique.</p>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-badge">
+        <span class="century">XVII<sup>e</sup></span>
+        <span class="label">Siècle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="main">
+
+      <!-- SECTION 1 -->
+      <div class="section-card">
+        <div class="section-card-header open" onclick="toggleSection(this)">
+          <div class="section-icon icon-navy">👑</div>
+          <h2>I. Les règnes : de Henri IV à Louis XIV</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body open">
+          <div class="subsection">
+            <h3>Louis XIII et le cardinal de Richelieu</h3>
+            <p>À la mort d'Henri IV en 1610, son fils <strong>Louis XIII</strong> n'a que neuf ans. Sa mère, <strong>Marie de Médicis</strong>, assure la régence dans un contexte d'instabilité : la noblesse est mécontente et les protestants sont inquiets.</p>
+            <p>En <strong>1624</strong>, le cardinal de <strong>Richelieu</strong> devient le principal conseiller du roi. Il renforce le pouvoir royal grâce au principe de la <em>raison d'État</em>, place le roi au-dessus des lois, affaiblit la noblesse et s'oppose aux protestants, notamment en assiégeant <strong>La Rochelle</strong> (1627–1628). Il fonde également l'<strong>Académie française</strong> en 1634 pour unifier la langue.</p>
+            <div class="highlight-box">
+              <div class="box-title">📌 À retenir</div>
+              <p>La <em>raison d'État</em> est le principe selon lequel le bien de l'État peut justifier des mesures extraordinaires, même contraires aux lois ordinaires. C'est le fondement de l'absolutisme.</p>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>Louis XIV, le Roi-Soleil (1643–1715)</h3>
+            <p>Louis XIV monte sur le trône à cinq ans. La régence est assurée par <strong>Anne d'Autriche</strong> et le cardinal <strong>Mazarin</strong>. Cette période est marquée par la <strong>Fronde</strong> (1648–1653) — une double révolte du Parlement puis des princes — qui laisse en Louis XIV une méfiance profonde envers la noblesse.</p>
+            <p>En <strong>1661</strong>, à la mort de Mazarin, Louis XIV décide de gouverner seul. Il se proclame <em>monarque de droit divin</em> et choisit le soleil comme symbole. En <strong>1682</strong>, il installe la cour à <strong>Versailles</strong> pour contrôler la noblesse par l'étiquette rigide des rituels quotidiens.</p>
+            <p>En <strong>1685</strong>, la <strong>révocation de l'édit de Nantes</strong> supprime la liberté de culte des protestants : environ <strong>200 000 huguenots</strong> s'exilent. À sa mort en 1715, la France est épuisée par les guerres et l'absolutisme commence à être contesté.</p>
+
+            <div class="key-facts">
+              <div class="fact-item">
+                <span class="fact-year">1624</span>
+                <span class="fact-text">Richelieu, ministre de Louis XIII — début de l'absolutisme moderne</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-year">1634</span>
+                <span class="fact-text">Fondation de l'Académie française</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-year">1648</span>
+                <span class="fact-text">Fronde parlementaire — début des troubles</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-year">1661</span>
+                <span class="fact-text">Louis XIV gouverne seul — apogée de l'absolutisme</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-year">1682</span>
+                <span class="fact-text">La cour s'installe à Versailles</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-year">1685</span>
+                <span class="fact-text">Révocation de l'édit de Nantes — exil des protestants</span>
+              </div>
+            </div>
+
+            <div class="tag-list" style="margin-top:1rem">
+              <span class="tag tag-navy">Absolutisme</span>
+              <span class="tag tag-terra">Droit divin</span>
+              <span class="tag tag-gold">Versailles</span>
+              <span class="tag tag-sage">Étiquette</span>
+              <span class="tag tag-lav">Fronde</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-terra">📜</div>
+          <h2>II. La création littéraire au XVII<sup>e</sup> siècle</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>La langue française et les salons</h3>
+            <p>Le XVII<sup>e</sup> siècle est une période de grande activité littéraire. La langue française se modernise et cherche à rivaliser avec le latin. L'idéal est la <strong>clarté</strong> et la <strong>simplicité</strong>, résumé dans la formule de <strong>Boileau</strong> : « Ce qui se conçoit bien s'énonce clairement. »</p>
+            <p>Les <strong>salons parisiens</strong> (comme celui de la marquise de Rambouillet ou de Madeleine de Scudéry) jouent un rôle clé dans la diffusion du bon goût. On y discute littérature et art, et c'est là que naît la <strong>préciosité</strong> — un art de vivre fondé sur le raffinement du langage et la galanterie.</p>
+            <p>L'idéal social est celui de l'<em>« honnête homme »</em> : cultivé, mesuré, agréable en société, sans pédanterie.</p>
+          </div>
+
+          <div class="subsection">
+            <h3>Le baroque et le classicisme</h3>
+            <p>Deux grands courants se succèdent au cours du siècle :</p>
+            <div class="highlight-box">
+              <div class="box-title">🌀 Le Baroque (1er tiers du siècle)</div>
+              <p>Goût de l'ornement, de l'illusion et des contrastes. Style lié à l'instabilité religieuse et politique de l'époque.</p>
+            </div>
+            <div class="highlight-box green-box" style="margin-top:0.8rem">
+              <div class="box-title">⚖️ Le Classicisme (esthétique officielle de Louis XIV)</div>
+              <p>Équilibre, mesure et harmonie inspirés de l'Antiquité. Grands auteurs : Pascal, La Fontaine, Bossuet (1ère génération) — Molière, Racine, Boileau, M<sup>me</sup> de La Fayette (2ème génération).</p>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3>L'âge d'or du théâtre</h3>
+            <p>Le théâtre connaît un développement exceptionnel. En <strong>1680</strong>, Louis XIV crée la <strong>Comédie-Française</strong>. Les dramaturges respectent la <em>règle des trois unités</em> (action, lieu, temps) et les principes de <em>bienséance</em> et de <em>vraisemblance</em>. Le théâtre a une finalité morale : montrer les vices punis, les vertus récompensées.</p>
+            <p>La <strong>Querelle des Anciens et des Modernes</strong> clôt le siècle : les « Anciens » défendent l'imitation de l'Antiquité, les « Modernes » affirment avoir égalé et dépassé les auteurs grecs et latins. La querelle se conclut avec la <em>Lettre à l'Académie</em> de Fénelon (1714).</p>
+            <div class="quote-block">
+              <p>« Ce qui se conçoit bien s'énonce clairement, / Et les mots pour le dire arrivent aisément. »</p>
+              <cite>— Boileau, Art poétique (1674)</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES I -->
+      <div class="exercises-section">
+        <div class="ex-header" onclick="toggleEx(this)">
+          <div style="background:rgba(255,255,255,0.25);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">✏️</div>
+          <h2>Esercizi — Modulo I</h2>
+          <span class="chevron" style="color:rgba(255,255,255,0.8)">▼</span>
+        </div>
+        <div class="ex-body">
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 1</div>
+            <div class="ex-type type-qcm">Scelta multipla</div>
+            <div class="ex-question">Quel est le principe politique utilisé par Richelieu pour renforcer l'autorité royale ?</div>
+            <div class="qcm-options" data-answer="1">
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> a) La démocratie directe</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> b) La raison d'État</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> c) La séparation des pouvoirs</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> d) Le contrat social</label>
+            </div>
+            <button class="ex-btn" onclick="checkQcm(this)">Verifica risposta</button>
+            <div class="ex-feedback">✅ Esatto! Richelieu utilizzò la <em>raison d'État</em> per giustificare le azioni del re al di sopra delle leggi ordinarie.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 2</div>
+            <div class="ex-type type-vero">Vero / Falso</div>
+            <div class="ex-question">Louis XIV a été contraint de fuir à Versailles à cause de la Fronde.</div>
+            <div class="vf-buttons">
+              <button class="vf-btn" onclick="answerVF(this,'V','F')">Vrai</button>
+              <button class="vf-btn" onclick="answerVF(this,'F','F')">Faux</button>
+            </div>
+            <div class="ex-feedback">❌ Falso. Louis XIV <em>scelse</em> di trasferire la corte a Versailles nel 1682 per tenere la nobiltà sotto controllo e prevenire una nuova Fronda. Non fu costretto, fu una decisione politica deliberata.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 3</div>
+            <div class="ex-type type-completa">Completa la frase</div>
+            <div class="ex-question">Complète les phrases avec les mots corrects.</div>
+            <div class="fill-blank">
+              En 1634, Richelieu fonde l'<input type="text" placeholder="…"> pour unifier la langue française.<br>
+              En 1680, Louis XIV crée la <input type="text" placeholder="…"> en fusionnant les troupes de théâtre.<br>
+              Le courant qui succède au baroque et valorise l'équilibre est le <input type="text" placeholder="…">.
+            </div>
+            <button class="ex-btn" onclick="checkFill(this,['académie française','comédie-française','classicisme'])">Verifica risposte</button>
+            <div class="ex-feedback"></div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 4</div>
+            <div class="ex-type type-aperto">Risposta aperta</div>
+            <div class="ex-question">En quelques phrases, expliquez pourquoi Louis XIV a décidé d'installer la cour à Versailles. Quelles étaient ses raisons politiques ?</div>
+            <textarea class="open-answer" placeholder="Scrivi la tua risposta in francese…"></textarea>
+            <button class="ex-btn" onclick="showModelAnswer(this, 'Louis XIV a installé la cour à Versailles en 1682 pour plusieurs raisons politiques. Marqué par la Fronde, il voulait surveiller et contrôler la noblesse en la maintenant proche de lui dans un cadre soumis à une étiquette très stricte. En concentrant la noblesse à Versailles, il l\'éloignait de ses bases régionales et l\'empêchait de conspirer. De plus, le faste de Versailles servait à glorifier l\'image du roi et à rappeler à tous sa puissance absolue.')">Mostra risposta modello</div>
+            <div class="ex-feedback"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR I -->
+    <div class="sidebar">
+      <div class="sidebar-sticky">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">🇮🇹 Traduzione — Concetti chiave</div>
+          <div class="sidebar-card-body">
+            <table class="translation-table">
+              <tr><td>Grand Siècle</td><td>Grande Secolo</td></tr>
+              <tr><td>Raison d'État</td><td>Ragion di Stato</td></tr>
+              <tr><td>Droit divin</td><td>Diritto divino</td></tr>
+              <tr><td>La Fronde</td><td>La Fronda (rivolta)</td></tr>
+              <tr><td>Étiquette</td><td>Etichetta di corte</td></tr>
+              <tr><td>Édit de Nantes</td><td>Editto di Nantes</td></tr>
+              <tr><td>Préciosité</td><td>Preziosismo</td></tr>
+              <tr><td>Honnête homme</td><td>Galantuomo / uomo di mondo</td></tr>
+              <tr><td>Baroque</td><td>Barocco</td></tr>
+              <tr><td>Classicisme</td><td>Classicismo</td></tr>
+              <tr><td>Bienséance</td><td>Convenienza, buon gusto</td></tr>
+              <tr><td>Vraisemblance</td><td>Verosimiglianza</td></tr>
+              <tr><td>Règle des trois unités</td><td>Regola delle tre unità</td></tr>
+              <tr><td>Huguenots</td><td>Ugonotti (protestanti francesi)</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header gold">⏳ Cronologia essenziale</div>
+          <div class="sidebar-card-body">
+            <div class="timeline">
+              <div class="tl-item">
+                <span class="tl-year">1610</span>
+                <div class="tl-content"><strong>Assassinio di Enrico IV</strong> — Reggenza di Maria de' Medici</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1624</span>
+                <div class="tl-content"><strong>Richelieu</strong> ministro di Luigi XIII</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1634</span>
+                <div class="tl-content">Fondazione dell'<strong>Académie française</strong></div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1648</span>
+                <div class="tl-content"><strong>La Fronda</strong> parlamentare</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1661</span>
+                <div class="tl-content">Luigi XIV governa da solo</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1680</span>
+                <div class="tl-content">Nascita della <strong>Comédie-Française</strong></div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1682</span>
+                <div class="tl-content">La corte si sposta a <strong>Versailles</strong></div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1685</span>
+                <div class="tl-content">Revoca dell'<strong>Editto di Nantes</strong></div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1715</span>
+                <div class="tl-content">Morte di Luigi XIV</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header terra">✍️ Autori del Classicismo</div>
+          <div class="sidebar-card-body">
+            <div class="personage">
+              <div class="pers-item">
+                <div class="pers-name">Molière</div>
+                <div class="pers-dates">1622–1673</div>
+                <div class="pers-desc">Commediografo. Critica i vizi della società (avarizia, bigotteria, snobismo) con ironia e intelligenza.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Racine</div>
+                <div class="pers-dates">1639–1699</div>
+                <div class="pers-desc">Tragediografo. Le sue tragedie (Phèdre, Andromaque) esplorano le passioni umane con un linguaggio sobrio e perfetto.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">La Fontaine</div>
+                <div class="pers-dates">1621–1695</div>
+                <div class="pers-desc">Favolista. Le <em>Fables</em> combinano morale e poesia in racconti brevi e memorabili.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Boileau</div>
+                <div class="pers-dates">1636–1711</div>
+                <div class="pers-desc">Teorico del Classicismo. L'<em>Art poétique</em> fissa le norme del buon scrivere in versi.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODULE II -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-1">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Module II</div>
+      <h1>De l'Ancien Régime<br>à la <em>Révolution française</em></h1>
+      <p class="hero-sub">Le XVIII<sup>e</sup> siècle : crise de la monarchie absolue, bouleversements sociaux et naissance de la République française.</p>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-badge">
+        <span class="century">XVIII<sup>e</sup></span>
+        <span class="label">Siècle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="main">
+
+      <div class="section-card">
+        <div class="section-card-header open" onclick="toggleSection(this)">
+          <div class="section-icon icon-gold">🏛️</div>
+          <h2>I. La politique sous l'Ancien Régime</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body open">
+          <div class="subsection">
+            <h3>La régence de Philippe d'Orléans (1715–1723)</h3>
+            <p>À la mort de Louis XIV, <strong>Louis XV</strong> n'a que cinq ans. La régence est assurée par <strong>Philippe d'Orléans</strong> : la cour quitte Versailles pour Paris, la liberté culturelle augmente, la noblesse retrouve de l'influence. L'économie est lourdement endettée par les guerres de Louis XIV.</p>
+            <p>Le banquier écossais <strong>John Law</strong> propose un plan ambitieux : monnaie papier, banque royale, Compagnie des Indes. Le système fonctionne un temps, mais la faillite de 1720 ruine de nombreux épargnants.</p>
+          </div>
+          <div class="subsection">
+            <h3>Le commerce triangulaire et l'esclavage</h3>
+            <p>La France possède un vaste empire colonial. Les plantations coloniales fonctionnent grâce au travail des esclaves africains, encadrés par le <strong>Code noir</strong> de 1685. Le <em>commerce triangulaire</em> désigne le circuit maritime Europe → Afrique → Amérique → Europe, qui enrichit les ports de Nantes, Bordeaux et La Rochelle mais repose sur la déportation de millions d'êtres humains.</p>
+            <div class="highlight-box">
+              <div class="box-title">📌 Commerce triangulaire</div>
+              <p>1) L'Europe envoie des marchandises en Afrique. 2) En échange, des esclaves africains sont déportés aux Amériques. 3) Les colonies envoient leurs produits (sucre, tabac, coton) vers l'Europe. Les philosophes des Lumières dénoncent ce système comme profondément immoral.</p>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3>Louis XV et Louis XVI</h3>
+            <p><strong>Louis XV</strong> (1723–1774), d'abord aimé, laisse le pouvoir aux favoris et aux ministres. La défaite de la <strong>guerre de Sept Ans</strong> (1756–1763) contre l'Angleterre coûte à la France la plupart de ses colonies.</p>
+            <p><strong>Louis XVI</strong> (1774–1792) hérite d'une situation économique catastrophique. Ses tentatives de réforme fiscale se heurtent à l'opposition du clergé, de la noblesse et des parlements qui refusent de perdre leurs privilèges. La société est divisée en trois <em>ordres</em> : le clergé, la noblesse et le <strong>tiers état</strong> (97 % de la population), profondément inégaux devant l'impôt et la justice.</p>
+            <div class="tag-list">
+              <span class="tag tag-terra">Ancien Régime</span>
+              <span class="tag tag-navy">Trois ordres</span>
+              <span class="tag tag-gold">Commerce triangulaire</span>
+              <span class="tag tag-sage">Code noir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-terra">⚡</div>
+          <h2>II. La Révolution française</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>Les États généraux et l'Assemblée nationale (1789)</h3>
+            <p>Le 5 mai 1789, Louis XVI convoque les <strong>États généraux</strong> pour résoudre la crise financière. Le conflit éclate sur le vote : le tiers état veut voter <em>par tête</em> (un représentant = une voix), la noblesse et le clergé veulent voter <em>par ordre</em> (ce qui leur donne la majorité). Face au blocage, les représentants du tiers état se proclament <strong>Assemblée nationale</strong> et prêtent le <strong>serment du Jeu de paume</strong> (20 juin) pour donner une constitution à la France.</p>
+            <p>Le <strong>14 juillet</strong>, le peuple de Paris prend d'assaut la <strong>Bastille</strong>. Dans les campagnes, la <em>Grande Peur</em> pousse les paysans à attaquer les châteaux. Le <strong>4 août</strong>, l'Assemblée abolit les privilèges féodaux. Le <strong>26 août</strong>, elle adopte la <strong>Déclaration des droits de l'homme et du citoyen</strong>.</p>
+          </div>
+          <div class="subsection">
+            <h3>La Constitution de 1791</h3>
+            <p>La Constitution de 1791 instaure la <em>séparation des pouvoirs</em> : Louis XVI conserve le pouvoir exécutif, les députés détiennent le législatif, des juges élus exercent le judiciaire. Les Français deviennent des <strong>citoyens</strong>, dotés de droits fondamentaux. Cependant, le droit de vote est réservé aux hommes propriétaires. <strong>Olympe de Gouges</strong> proteste dans sa <em>Déclaration des droits de la femme et de la citoyenne</em>.</p>
+          </div>
+          <div class="subsection">
+            <h3>De la Monarchie à la République</h3>
+            <p>En juin 1791, Louis XVI tente de fuir — il est arrêté à <strong>Varennes</strong>. La méfiance envers le roi s'aggrave. En août 1792, les <em>sans-culottes</em> attaquent les Tuileries. En septembre 1792, la <strong>Convention proclame la Première République</strong>. Louis XVI est guillotiné le <strong>21 janvier 1793</strong>.</p>
+          </div>
+          <div class="subsection">
+            <h3>La Terreur et la chute de Robespierre</h3>
+            <p>Les <strong>Montagnards</strong> (radicaux) l'emportent sur les Girondins (modérés). Le <strong>Comité de salut public</strong> instaure la <strong>Terreur</strong> (1793–1794) : la loi des suspects permet d'arrêter tout présumé ennemi de la République. <strong>Robespierre</strong> exerce une véritable dictature jusqu'au <strong>9 Thermidor</strong> (27 juillet 1794), où il est arrêté et guillotiné.</p>
+            <p>Le <strong>Directoire</strong> (1795–1799) tente de stabiliser le régime, sans succès. En novembre 1799, <strong>Napoléon Bonaparte</strong> prend le pouvoir par un coup d'État.</p>
+            <div class="key-facts">
+              <div class="fact-item"><span class="fact-year">1789</span><span class="fact-text">États généraux → Assemblée nationale → Bastille → Déclaration des droits</span></div>
+              <div class="fact-item"><span class="fact-year">1791</span><span class="fact-text">Constitution — monarchie constitutionnelle</span></div>
+              <div class="fact-item"><span class="fact-year">1792</span><span class="fact-text">Chute de la monarchie — Première République</span></div>
+              <div class="fact-item"><span class="fact-year">1793</span><span class="fact-text">Exécution de Louis XVI — début de la Terreur</span></div>
+              <div class="fact-item"><span class="fact-year">1794</span><span class="fact-text">Chute de Robespierre (9 Thermidor)</span></div>
+              <div class="fact-item"><span class="fact-year">1799</span><span class="fact-text">Coup d'État de Napoléon Bonaparte</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-lavender">🎨</div>
+          <h2>III. L'art au XVIII<sup>e</sup> siècle</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>Le rococo</h3>
+            <p>En réaction à l'austérité classique, le <strong>rococo</strong> s'impose en début de siècle : lignes courbes, couleurs douces, légèreté et raffinement. Le peintre <strong>Antoine Watteau</strong> en est le représentant le plus célèbre, avec ses scènes de <em>fêtes galantes</em> dans des parcs idéalisés.</p>
+          </div>
+          <div class="subsection">
+            <h3>Le néo-classicisme</h3>
+            <p>À partir de la seconde moitié du siècle, le <strong>néo-classicisme</strong> s'impose en réaction au rococo jugé trop frivole. Ce style, inspiré de l'Antiquité, valorise la simplicité et la rigueur. Il devient le style officiel de la Révolution car associé à la démocratie athénienne. Le peintre <strong>Jacques-Louis David</strong> en est le représentant principal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES II -->
+      <div class="exercises-section">
+        <div class="ex-header" onclick="toggleEx(this)">
+          <div style="background:rgba(255,255,255,0.25);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">✏️</div>
+          <h2>Esercizi — Modulo II</h2>
+          <span class="chevron" style="color:rgba(255,255,255,0.8)">▼</span>
+        </div>
+        <div class="ex-body">
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 1</div>
+            <div class="ex-type type-qcm">Scelta multipla</div>
+            <div class="ex-question">Que signifie voter « par ordre » lors des États généraux de 1789 ?</div>
+            <div class="qcm-options" data-answer="2">
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> a) Chaque représentant vote individuellement</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> b) Chaque groupe (clergé, noblesse, tiers état) a une seule voix collective</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> c) Seuls les nobles ont le droit de vote</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> d) Le roi décide en dernier recours</label>
+            </div>
+            <button class="ex-btn" onclick="checkQcm(this)">Verifica risposta</button>
+            <div class="ex-feedback">✅ Esatto! Votare «per ordine» significa che ciascuno dei tre ordini esprime una sola voce collettiva. Poiché il clero e la nobiltà erano quasi sempre d'accordo, il tiers état — pur rappresentando il 97% della popolazione — era sistematicamente in minoranza 2 contro 1.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 2</div>
+            <div class="ex-type type-vero">Vero / Falso</div>
+            <div class="ex-question">La Révolution française a immédiatement accordé le droit de vote à tous les citoyens, y compris les femmes.</div>
+            <div class="vf-buttons">
+              <button class="vf-btn" onclick="answerVF(this,'V','F')">Vrai</button>
+              <button class="vf-btn" onclick="answerVF(this,'F','F')">Faux</button>
+            </div>
+            <div class="ex-feedback">❌ Falso. La Costituzione del 1791 riservava il diritto di voto agli uomini che pagavano un certo livello di tasse. Le donne ne erano escluse, e fu proprio per protestare contro questa esclusione che Olympe de Gouges scrisse la sua <em>Déclaration des droits de la femme et de la citoyenne</em>.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 3</div>
+            <div class="ex-type type-aperto">Risposta aperta</div>
+            <div class="ex-question">Pourquoi peut-on dire que Robespierre a trahi les idéaux de la Révolution ? Rédigez quelques lignes en français.</div>
+            <textarea class="open-answer" placeholder="Scrivi la tua risposta in francese…"></textarea>
+            <button class="ex-btn" onclick="showModelAnswer(this, 'On peut dire que Robespierre a trahi les idéaux de la Révolution parce que la Révolution était fondée sur les principes de liberté, d\'égalité et de justice. Or, Robespierre a instauré la Terreur, un régime de peur dans lequel la simple suspicion suffisait à envoyer quelqu\'un à la guillotine. Il a ainsi exercé une véritable dictature, violant les libertés individuelles au nom d\'un idéal de vertu républicaine. En voulant protéger la République, il l\'a transformée en régime oppressif.')">Mostra risposta modello</div>
+            <div class="ex-feedback"></div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 4</div>
+            <div class="ex-type type-completa">Completa la frase</div>
+            <div class="ex-question">Complète les phrases suivantes.</div>
+            <div class="fill-blank">
+              Le serment du <input type="text" placeholder="…"> fut prêté le 20 juin 1789.<br>
+              La Bastille est prise par le peuple de Paris le <input type="text" placeholder="…"> juillet 1789.<br>
+              Louis XVI est guillotiné le 21 janvier <input type="text" placeholder="…">.
+            </div>
+            <button class="ex-btn" onclick="checkFill(this,['jeu de paume','14','1793'])">Verifica risposte</button>
+            <div class="ex-feedback"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR II -->
+    <div class="sidebar">
+      <div class="sidebar-sticky">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">🇮🇹 Traduzione — Concetti chiave</div>
+          <div class="sidebar-card-body">
+            <table class="translation-table">
+              <tr><td>Ancien Régime</td><td>Antico Regime</td></tr>
+              <tr><td>Tiers état</td><td>Terzo Stato</td></tr>
+              <tr><td>États généraux</td><td>Stati Generali</td></tr>
+              <tr><td>Serment du Jeu de paume</td><td>Giuramento della Pallacorda</td></tr>
+              <tr><td>Grande Peur</td><td>Grande Paura</td></tr>
+              <tr><td>Sans-culottes</td><td>Sanculotti (popolo rivoluzionario)</td></tr>
+              <tr><td>Bienséance</td><td>Convenienza morale</td></tr>
+              <tr><td>La Terreur</td><td>Il Terrore</td></tr>
+              <tr><td>Loi des suspects</td><td>Legge dei sospetti</td></tr>
+              <tr><td>Directoire</td><td>Direttorio</td></tr>
+              <tr><td>Commerce triangulaire</td><td>Commercio triangolare (tratta)</td></tr>
+              <tr><td>Droit de veto</td><td>Diritto di veto</td></tr>
+              <tr><td>Souveraineté</td><td>Sovranità</td></tr>
+              <tr><td>Citoyen</td><td>Cittadino</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header gold">⏳ Le tappe della Rivoluzione</div>
+          <div class="sidebar-card-body">
+            <div class="timeline">
+              <div class="tl-item">
+                <span class="tl-year">1789</span>
+                <div class="tl-content"><strong>5 maggio</strong> — Stati Generali<br><strong>20 giugno</strong> — Giuramento<br><strong>14 luglio</strong> — Presa della Bastiglia<br><strong>26 agosto</strong> — Dichiarazione dei diritti</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1791</span>
+                <div class="tl-content"><strong>Costituzione</strong> — monarchia costituzionale<br>Fuga di Luigi XVI a Varennes</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1792</span>
+                <div class="tl-content">Guerra contro Austria e Prussia<br><strong>Prima Repubblica</strong> proclamata</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1793</span>
+                <div class="tl-content"><strong>21 gennaio</strong> — Ghigliottina di Luigi XVI<br>Inizio del Terrore</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1794</span>
+                <div class="tl-content"><strong>9 Termidoro</strong> — Caduta di Robespierre</div>
+              </div>
+              <div class="tl-item">
+                <span class="tl-year">1799</span>
+                <div class="tl-content">Colpo di stato di <strong>Napoleone</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header terra">👤 Figure chiave</div>
+          <div class="sidebar-card-body">
+            <div class="personage">
+              <div class="pers-item">
+                <div class="pers-name">Louis XVI</div>
+                <div class="pers-dates">1754–1793</div>
+                <div class="pers-desc">Re di Francia, incapace di riformare l'Antico Regime. Ghigliottinato nel 1793.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Robespierre</div>
+                <div class="pers-dates">1758–1794</div>
+                <div class="pers-desc">Leader giacobino, figura centrale del Terrore. Ghigliottinato nel luglio 1794.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Olympe de Gouges</div>
+                <div class="pers-dates">1748–1793</div>
+                <div class="pers-desc">Scrittrice e attivista. Rivendicò i diritti politici delle donne. Ghigliottinata nel 1793.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Jacques-Louis David</div>
+                <div class="pers-dates">1748–1825</div>
+                <div class="pers-desc">Pittore neoclassico ufficiale della Rivoluzione e poi di Napoleone.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODULE III -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-2">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Module III</div>
+      <h1>Les <em>Lumières</em> et la<br>nouvelle sensibilité</h1>
+      <p class="hero-sub">Le combat philosophique du XVIII<sup>e</sup> siècle : Montesquieu, Voltaire, Rousseau et l'émergence d'une nouvelle vision de l'homme et de la société.</p>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-badge">
+        <span class="century">💡</span>
+        <span class="label">Lumières</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="main">
+
+      <div class="section-card">
+        <div class="section-card-header open" onclick="toggleSection(this)">
+          <div class="section-icon icon-gold">💡</div>
+          <h2>I. Les idées des Lumières</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body open">
+          <div class="subsection">
+            <h3>Qu'est-ce que les Lumières ?</h3>
+            <p>Le mouvement des Lumières réunit des philosophes qui ont pour mission d'<strong>éclairer l'esprit humain</strong>, de combattre l'ignorance et les préjugés, et de promouvoir la raison. Leur devise est la formule latine <em>sapere aude</em> : « ose savoir ».</p>
+            <p>En France, les Lumières naissent avec <em>L'Esprit des lois</em> de <strong>Montesquieu</strong> (1748) et l'<em>Encyclopédie</em> de <strong>Diderot et d'Alembert</strong> (1751–1772), qui rassemble l'ensemble des connaissances humaines. Les philosophes combattent l'intolérance religieuse, défendent le bonheur individuel et diffusent leurs idées dans toute l'Europe.</p>
+            <div class="highlight-box gold-box">
+              <div class="box-title">⚠️ Attenzione — Equivoco comune</div>
+              <p>I filosofi illuministi <strong>non erano rivoluzionari</strong>. La maggior parte preferiva la monarchia illuminata alla democrazia radicale. Hanno preparato il terreno intellettuale alla Rivoluzione, ma non la volevano.</p>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3>Une nouvelle sensibilité</h3>
+            <p>Le XVIII<sup>e</sup> siècle voit aussi émerger une nouvelle façon de ressentir le monde : les auteurs cherchent à toucher le lecteur, à provoquer ses émotions — le rire, l'indignation, l'attendrissement. Ils développent un rapport plus intime à la nature et aux autres êtres humains. Cette sensibilité s'exprime notamment dans <em>Julie ou la Nouvelle Héloïse</em> (1761) de Rousseau, roman sentimental et réflexion philosophique à la fois.</p>
+            <div class="tag-list">
+              <span class="tag tag-gold">Sapere aude</span>
+              <span class="tag tag-navy">Encyclopédie</span>
+              <span class="tag tag-sage">Tolérance</span>
+              <span class="tag tag-terra">Raison</span>
+              <span class="tag tag-lav">Nouvelle sensibilité</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-navy">⚖️</div>
+          <h2>II. Montesquieu (1689–1755)</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>Vie et parcours</h3>
+            <p>Magistrat de la noblesse bordelaise, Montesquieu publie en 1721 les <em>Lettres persanes</em>, roman épistolaire qui critique la société française à travers le regard de deux voyageurs persans. Après un long voyage en Europe, notamment en Angleterre, il écrit son œuvre majeure : <em>De l'esprit des lois</em> (1748).</p>
+          </div>
+          <div class="subsection">
+            <h3>Les idées principales</h3>
+            <p>Montesquieu distingue trois types de gouvernements :</p>
+            <div class="key-facts">
+              <div class="fact-item"><span class="fact-year">République</span><span class="fact-text">Fondée sur la <strong>vertu</strong> des citoyens</span></div>
+              <div class="fact-item"><span class="fact-year">Monarchie</span><span class="fact-text">Fondée sur l'<strong>honneur</strong></span></div>
+              <div class="fact-item"><span class="fact-year">Despotisme</span><span class="fact-text">Fondé sur la <strong>crainte</strong> — à rejeter absolument</span></div>
+            </div>
+            <p style="margin-top:0.8rem">Il défend la <strong>séparation des pouvoirs</strong> (législatif, exécutif, judiciaire) et exprime sa préférence pour la monarchie constitutionnelle anglaise. Son œuvre inspirera directement la Constitution américaine de 1787 et la Constitution française de 1791.</p>
+            <div class="quote-block">
+              <p>« Pour qu'on ne puisse abuser du pouvoir, il faut que, par la disposition des choses, le pouvoir arrête le pouvoir. »</p>
+              <cite>— Montesquieu, De l'esprit des lois (1748)</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-terra">⚡</div>
+          <h2>III. Voltaire (1694–1778)</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>Vie et parcours</h3>
+            <p>François-Marie Arouet, dit <strong>Voltaire</strong>, est emprisonné à la Bastille pour des vers satiriques, puis contraint à l'exil en Angleterre (1726), où il découvre Locke, Newton et la monarchie parlementaire. De retour en France, il publie les <em>Lettres philosophiques</em> (1734), condamnées. Il se réfugie chez la marquise du Châtelet, puis à la cour de Frédéric II de Prusse. Il passe ses vingt dernières années dans sa propriété de <strong>Ferney</strong>, à la frontière suisse, d'où il anime l'Europe intellectuelle et s'engage dans des affaires judiciaires.</p>
+          </div>
+          <div class="subsection">
+            <h3>Les idées principales</h3>
+            <p>Voltaire défend la <strong>liberté individuelle</strong> et la <strong>tolérance</strong>. Sur le plan religieux, il est <em>déiste</em> : il croit en un Dieu créateur mais rejette les religions révélées. Il s'engage dans l'<strong>affaire Calas</strong> — un protestant injustement condamné — pour dénoncer le fanatisme religieux et les erreurs de la justice.</p>
+          </div>
+          <div class="subsection">
+            <h3>Œuvres principales</h3>
+            <div class="highlight-box">
+              <div class="box-title">📖 Candide (1759)</div>
+              <p>Conte philosophique satirique. Un jeune naïf découvre la violence du monde et finit par adopter une philosophie personnelle fondée sur le travail et l'égalité, contre l'optimisme naïf de son maître Pangloss.</p>
+            </div>
+            <div class="highlight-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Traité sur la tolérance (1763)</div>
+              <p>Rédigé à l'occasion de l'affaire Calas. Voltaire y plaide pour le respect mutuel entre les religions et dénonce les sociétés qui font des minorités religieuses des boucs émissaires.</p>
+            </div>
+            <div class="highlight-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Dictionnaire philosophique portatif (1764)</div>
+              <p>Les grandes idées de Voltaire présentées sous forme alphabétique, publiées anonymement. Une critique acerbe de tout ce qui empêche les êtres humains d'être heureux et raisonnables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card-header" onclick="toggleSection(this)">
+          <div class="section-icon icon-sage">🌿</div>
+          <h2>IV. Jean-Jacques Rousseau (1712–1778)</h2>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3>Vie et parcours</h3>
+            <p>Né à Genève dans une famille protestante, Rousseau grandit de façon instable. À seize ans, il quitte la Suisse et est recueilli par <strong>Mme de Warens</strong>. À Paris à partir de 1742, il collabore à l'<em>Encyclopédie</em> et fréquente Diderot et Voltaire. En 1750, son <em>Discours sur les sciences et les arts</em> lui apporte une célébrité immédiate. Condamné pour ses idées religieuses, il s'exile plusieurs années. Il meurt en 1778, la même année que Voltaire.</p>
+          </div>
+          <div class="subsection">
+            <h3>L'idée fondamentale</h3>
+            <div class="highlight-box gold-box">
+              <div class="box-title">💡 L'idée centrale de Rousseau</div>
+              <p><strong>« L'homme est bon par nature, c'est la société qui le corrompt. »</strong><br>Contrairement à Voltaire et Diderot, Rousseau ne croit pas au progrès et à la civilisation comme sources de bonheur. C'est cette idée qui traverse toute son œuvre.</p>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3>Œuvres principales</h3>
+            <div class="highlight-box">
+              <div class="box-title">📖 Discours sur l'origine de l'inégalité (1755)</div>
+              <p>Rousseau distingue l'inégalité naturelle (inévitable) de l'inégalité sociale (créée par les hommes). La propriété privée est selon lui à l'origine de toutes les injustices.</p>
+            </div>
+            <div class="highlight-box green-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Du contrat social (1762)</div>
+              <p>Œuvre politique fondamentale. La société doit reposer sur un contrat librement accepté par tous les citoyens. La <strong>souveraineté appartient au peuple</strong>. Cette œuvre a inspiré la Déclaration des droits de l'homme et les révolutionnaires français.</p>
+            </div>
+            <div class="highlight-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Émile ou De l'éducation (1762)</div>
+              <p>Roman pédagogique. Rousseau imagine l'éducation idéale d'un enfant à la campagne, loin de la société corrompue. L'enfant est bon par nature : l'éducation doit respecter son rythme naturel de développement.</p>
+            </div>
+            <div class="highlight-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Julie ou la Nouvelle Héloïse (1761)</div>
+              <p>Roman épistolaire sentimental. L'amour impossible entre une jeune noble et son précepteur. Préfigure le Romantisme par sa sensibilité et son rapport profond à la nature.</p>
+            </div>
+            <div class="highlight-box" style="margin-top:0.7rem">
+              <div class="box-title">📖 Les Rêveries du promeneur solitaire (1782, posthume)</div>
+              <p>Réflexions intimes sur la nature et la solitude, rédigées au fil de promenades. Annoncent la littérature du moi (autobiographie, Romantisme).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCISES III -->
+      <div class="exercises-section">
+        <div class="ex-header" onclick="toggleEx(this)">
+          <div style="background:rgba(255,255,255,0.25);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">✏️</div>
+          <h2>Esercizi — Modulo III</h2>
+          <span class="chevron" style="color:rgba(255,255,255,0.8)">▼</span>
+        </div>
+        <div class="ex-body">
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 1</div>
+            <div class="ex-type type-qcm">Scelta multipla</div>
+            <div class="ex-question">Quelle est l'idée fondamentale qui distingue Rousseau des autres philosophes des Lumières ?</div>
+            <div class="qcm-options" data-answer="1">
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> a) Il croit que la raison peut tout expliquer</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> b) Il pense que la société corrompt l'homme, naturellement bon</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> c) Il défend la monarchie absolue</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> d) Il prône l'athéisme comme seule voie rationnelle</label>
+            </div>
+            <button class="ex-btn" onclick="checkQcm(this)">Verifica risposta</button>
+            <div class="ex-feedback">✅ Esatto! Rousseau si distingue dagli altri illuministi perché nega il progresso come fonte di felicità. Secondo lui, l'uomo è buono per natura ma la società lo corrompe — un'idea rivoluzionaria che influenzerà profondamente il Romanticismo.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 2</div>
+            <div class="ex-type type-qcm">Scelta multipla</div>
+            <div class="ex-question">Quelle position religieuse Voltaire défend-il dans son œuvre ?</div>
+            <div class="qcm-options" data-answer="3">
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> a) L'athéisme militant</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> b) Le catholicisme traditionnel</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> c) Le protestantisme calviniste</label>
+              <label class="qcm-option" onclick="selectQcm(this)"><span class="qcm-dot"></span> d) Le déisme — croyance en un Dieu créateur sans religion révélée</label>
+            </div>
+            <button class="ex-btn" onclick="checkQcm(this)">Verifica risposta</button>
+            <div class="ex-feedback">✅ Esatto! Voltaire è deista: crede in un Dio creatore ma rifiuta tutte le religioni rivelate (cattoliche, protestanti, ebraiche). Celebre la sua formula: «Écrasez l'infâme» — rivolta non contro Dio, ma contro il fanatismo religioso istituzionale.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 3</div>
+            <div class="ex-type type-vero">Vero / Falso</div>
+            <div class="ex-question">Selon Montesquieu, la séparation des pouvoirs est le meilleur moyen de prévenir le despotisme.</div>
+            <div class="vf-buttons">
+              <button class="vf-btn" onclick="answerVF(this,'V','V')">Vrai</button>
+              <button class="vf-btn" onclick="answerVF(this,'F','V')">Faux</button>
+            </div>
+            <div class="ex-feedback">✅ Vero! Montesquieu sostiene che separare il potere legislativo, esecutivo e giudiziario in mani diverse è il modo migliore per impedire l'abuso di potere. È questa la sua grande contribuzione alla teoria politica moderna, poi applicata nelle costituzioni americana e francese.</div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 4</div>
+            <div class="ex-type type-aperto">Risposta aperta</div>
+            <div class="ex-question">Associez chaque œuvre à son auteur et rédigez une phrase qui en résume l'idée principale. Œuvres : Candide — Du contrat social — De l'esprit des lois — L'Encyclopédie.</div>
+            <textarea class="open-answer" placeholder="Scrivi la tua risposta in francese…" style="min-height:120px"></textarea>
+            <button class="ex-btn" onclick="showModelAnswer(this, 'Candide (Voltaire) : ce conte philosophique satirique dénonce l\'optimisme naïf et la violence du monde, et défend une philosophie du travail et de la tolérance. — Du contrat social (Rousseau) : Rousseau y affirme que la société légitime repose sur un contrat librement accepté par tous les citoyens, et que la souveraineté appartient au peuple. — De l\'esprit des lois (Montesquieu) : Montesquieu y théorise la séparation des pouvoirs comme garantie contre le despotisme. — L\'Encyclopédie (Diderot et d\'Alembert) : cette œuvre monumentale rassemble l\'ensemble des connaissances humaines et diffuse les idées des Lumières dans toute l\'Europe.')">Mostra risposta modello</div>
+            <div class="ex-feedback"></div>
+          </div>
+
+          <div class="exercise">
+            <div class="ex-num">Esercizio 5</div>
+            <div class="ex-type type-completa">Completa la frase</div>
+            <div class="ex-question">Complète les phrases suivantes.</div>
+            <div class="fill-blank">
+              La devise des Lumières est <input type="text" placeholder="…">, ce qui signifie « ose savoir ».<br>
+              Voltaire s'engage pour défendre <input type="text" placeholder="…">, un protestant injustement condamné à mort.<br>
+              Rousseau pense que la <input type="text" placeholder="…"> privée est à l'origine de toutes les injustices sociales.
+            </div>
+            <button class="ex-btn" onclick="checkFill(this,['sapere aude','calas','propriété'])">Verifica risposte</button>
+            <div class="ex-feedback"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR III -->
+    <div class="sidebar">
+      <div class="sidebar-sticky">
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">🇮🇹 Traduzione — Concetti chiave</div>
+          <div class="sidebar-card-body">
+            <table class="translation-table">
+              <tr><td>Les Lumières</td><td>L'Illuminismo</td></tr>
+              <tr><td>Sapere aude</td><td>Osa sapere (Kant)</td></tr>
+              <tr><td>Tolérance</td><td>Tolleranza</td></tr>
+              <tr><td>Séparation des pouvoirs</td><td>Separazione dei poteri</td></tr>
+              <tr><td>Despotisme</td><td>Dispotismo</td></tr>
+              <tr><td>Déisme</td><td>Deismo</td></tr>
+              <tr><td>Contrat social</td><td>Contratto sociale</td></tr>
+              <tr><td>Souveraineté du peuple</td><td>Sovranità popolare</td></tr>
+              <tr><td>Propriété privée</td><td>Proprietà privata</td></tr>
+              <tr><td>Monarchie éclairée</td><td>Monarchia illuminata</td></tr>
+              <tr><td>Inégalité sociale</td><td>Disuguaglianza sociale</td></tr>
+              <tr><td>Roman épistolaire</td><td>Romanzo epistolare</td></tr>
+              <tr><td>Conte philosophique</td><td>Racconto filosofico</td></tr>
+              <tr><td>Préjugé</td><td>Pregiudizio</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-header sage">📚 Confronto tra filosofi</div>
+          <div class="sidebar-card-body">
+            <div class="personage">
+              <div class="pers-item">
+                <div class="pers-name">Montesquieu</div>
+                <div class="pers-dates">Politica — Moderato</div>
+                <div class="pers-desc">Separazione dei poteri, monarchia costituzionale, critica al dispotismo. Fonte delle costituzioni moderne.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Voltaire</div>
+                <div class="pers-dates">Impegno civile — Satirico</div>
+                <div class="pers-desc">Tolleranza religiosa, libertà individuale, deismo. Combatte il fanatismo con l'arma dell'ironia.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Rousseau</div>
+                <div class="pers-dates">Filosofia sociale — Originale</div>
+                <div class="pers-desc">Contro il progresso come fonte di felicità. Uomo buono per natura. Contratto sociale, sovranità popolare.</div>
+              </div>
+              <div class="pers-item">
+                <div class="pers-name">Diderot</div>
+                <div class="pers-dates">Scienza e filosofia — Enciclopedico</div>
+                <div class="pers-desc">Direttore dell'Encyclopédie. Morale laica fondata sulla ragione, critica al potere assoluto.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>📘 Histoire & Littérature française — XVII<sup>e</sup> & XVIII<sup>e</sup> siècles</span>
+  <span>Materiale di studio — Uso didattico</span>
+</footer>
+
+<script>
+  function showPage(index, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + index).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleSection(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    body.classList.toggle('open');
+  }
+
+  function toggleEx(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    body.classList.toggle('open');
+    if (header.classList.contains('open')) {
+      header.querySelector('.chevron').style.transform = 'rotate(180deg)';
+    } else {
+      header.querySelector('.chevron').style.transform = '';
+    }
+  }
+
+  function selectQcm(label) {
+    const group = label.closest('.qcm-options');
+    group.querySelectorAll('.qcm-option').forEach(o => o.classList.remove('selected'));
+    label.classList.add('selected');
+  }
+
+  function checkQcm(btn) {
+    const exercise = btn.closest('.exercise');
+    const group = exercise.querySelector('.qcm-options');
+    const feedback = exercise.querySelector('.ex-feedback');
+    const correctIndex = parseInt(group.dataset.answer);
+    const options = group.querySelectorAll('.qcm-option');
+    const selectedIndex = Array.from(options).findIndex(o => o.classList.contains('selected'));
+    
+    options.forEach((o, i) => {
+      o.classList.remove('selected', 'correct', 'wrong');
+      if (i === correctIndex - 1) o.classList.add('correct');
+    });
+    
+    if (selectedIndex === -1) {
+      feedback.textContent = '⚠️ Seleziona una risposta prima di verificare.';
+      feedback.className = 'ex-feedback show ko';
+      return;
+    }
+    
+    if (selectedIndex === correctIndex - 1) {
+      feedback.className = 'ex-feedback show ok';
+    } else {
+      options[selectedIndex].classList.add('wrong');
+      feedback.className = 'ex-feedback show ko';
+    }
+    feedback.style.display = 'block';
+  }
+
+  function answerVF(btn, answer, correct) {
+    const exercise = btn.closest('.exercise');
+    const feedback = exercise.querySelector('.ex-feedback');
+    const buttons = exercise.querySelectorAll('.vf-btn');
+    buttons.forEach(b => { b.classList.remove('selected-v', 'selected-f'); });
+    btn.classList.add(answer === 'V' ? 'selected-v' : 'selected-f');
+    
+    if (answer === correct) {
+      feedback.className = 'ex-feedback show ok';
+    } else {
+      feedback.className = 'ex-feedback show ko';
+    }
+  }
+
+  function showModelAnswer(btn, answer) {
+    const feedback = btn.nextElementSibling;
+    feedback.innerHTML = '<strong>Risposta modello:</strong><br><em>' + answer + '</em>';
+    feedback.className = 'ex-feedback show ok';
+  }
+
+  function checkFill(btn, answers) {
+    const exercise = btn.closest('.exercise');
+    const inputs = exercise.querySelectorAll('input[type="text"]');
+    const feedback = exercise.querySelector('.ex-feedback');
+    let allCorrect = true;
+    let results = [];
+    
+    inputs.forEach((input, i) => {
+      const userVal = input.value.trim().toLowerCase().replace(/['']/g, "'");
+      const correct = answers[i].toLowerCase();
+      if (userVal === correct || userVal.includes(correct.split(' ')[0])) {
+        input.style.borderBottomColor = '#3D6B5A';
+        results.push('✅');
+      } else {
+        input.style.borderBottomColor = '#B5492A';
+        allCorrect = false;
+        results.push('❌ (' + answers[i] + ')');
+      }
+    });
+    
+    if (allCorrect) {
+      feedback.innerHTML = '✅ Perfetto! Tutte le risposte sono corrette.';
+      feedback.className = 'ex-feedback show ok';
+    } else {
+      feedback.innerHTML = 'Correzioni: ' + results.join(' — ');
+      feedback.className = 'ex-feedback show ko';
+    }
+  }
+
+  // Open first section of each module by default
+  document.querySelectorAll('.section-card-header.open').forEach(h => {
+    h.nextElementSibling.classList.add('open');
+  });
+</script>
+
+</body>
+</html>
